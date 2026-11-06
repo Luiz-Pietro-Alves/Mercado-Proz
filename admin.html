@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Proz - Administração</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm site-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Mercado Proz</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">Catálogo</a>
+                <a class="nav-link active" aria-current="page" href="admin.html">Administrar produtos</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container admin-main">
+        <header class="page-heading">
+            <span class="badge text-bg-success mb-3">Painel de gerenciamento</span>
+            <h1>Administrar produtos</h1>
+            <p class="text-secondary mb-0">Cadastre, edite ou remova produtos do catálogo.</p>
+        </header>
+
+        <section class="card content-card mb-4" aria-label="Cadastro de produto">
+            <div class="card-body p-4">
+                <form id="formCadastro">
+                    <div class="mb-3">
+                        <label class="form-label" for="nome">Nome do produto</label>
+                        <input class="form-control" type="text" id="nome" placeholder="Ex.: Arroz 5kg" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="preco">Preço do produto (R$)</label>
+                        <input class="form-control" type="number" id="preco" min="0" step="0.01" placeholder="0,00" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label" for="categoria">Categoria do produto</label>
+                        <input class="form-control" type="text" id="categoria" placeholder="Ex.: Mercearia" required>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <button class="btn btn-outline-secondary" type="reset">Limpar</button>
+                        <button class="btn btn-success px-4" type="submit">Salvar produto</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section aria-labelledby="products-heading">
+            <h2 class="h4 mb-3" id="products-heading">Produtos cadastrados</h2>
+            <div class="table-responsive content-card">
+                <table class="table table-hover align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Produto</th>
+                            <th scope="col">Preço</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col" class="text-end">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="itens"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/scriptAdmin.js"></script>
+</body>
+</html>
